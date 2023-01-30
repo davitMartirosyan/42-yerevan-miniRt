@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:57:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/01/30 21:35:43 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:53:19 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,7 @@ void		failure(int errcode);
 t_cam		*newcam(t_vec *origin, t_vec *direction, float fov);
 t_terrain	*newscene(t_cam *cam, t_sphere *sphere);
 t_sphere	*newsphere(t_vec *vec, float radius);
+
+/*Tracer*/
+void	raytracer(t_render *rend, t_terrain *scene);
 #endif
