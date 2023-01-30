@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:57:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/01/30 21:53:19 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/01/30 23:19:17 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdio.h>
 # include <string.h>
-# include "../mlx_mms/mlx.h"
+# include "../mlx_linux/mlx.h"
 # include <math.h>
 # include "../libft/libft.h"
 # include "structs.h"
