@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 19:17:07 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/01/30 21:35:09 by dmartiro         ###   ########.fr       */
+/*   Created: 2023/01/30 21:09:34 by dmartiro          #+#    #+#             */
+/*   Updated: 2023/01/30 21:24:07 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	failure(int errcode)
+t_terrain	*newscene(t_cam *cam, t_sphere *sphere)
 {
-	if (errcode == -1)
-		write(2, "Can't allocate memmory\n", 23);
-	else if (errcode == -2)
-		write(2, "File not found\n", 15);
-	exit(errcode);
+	t_terrain	*scene;
+
+	scene = malloc(sizeof(t_terrain));
+	if (!scene)
+		failure(-1);
+	scene->cameras = cam;
+	scene->sphere = sphere;
+	scene->width = 0;
+	scene->height = 0;
+	return (scene);
 }

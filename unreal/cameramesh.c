@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   cameramesh.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 19:17:07 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/01/30 21:35:09 by dmartiro         ###   ########.fr       */
+/*   Created: 2023/01/30 20:26:48 by dmartiro          #+#    #+#             */
+/*   Updated: 2023/01/30 20:57:09 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	failure(int errcode)
+t_cam	*newcam(t_vec *origin, t_vec *direction, float fov)
 {
-	if (errcode == -1)
-		write(2, "Can't allocate memmory\n", 23);
-	else if (errcode == -2)
-		write(2, "File not found\n", 15);
-	exit(errcode);
+	t_cam	*cam;
+
+	cam = malloc(sizeof(t_cam));
+	if (!cam)
+		failure(-1);
+	cam->origin = origin;
+	cam->direction = direction;
+	cam->hfov = fov;
+	return (cam);
 }

@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:51:05 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/01/30 18:43:48 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:00:57 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_vec	*vec(float x, float y, float z)
 		failure(-1);
 	vector->x = x;
 	vector->y = y;
-	vector->z = y;
+	vector->z = z;
 	return (vector);
 }
 
