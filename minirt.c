@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:51:51 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/01/28 07:14:10 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/01/29 11:42:45 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,4 @@ int close_window(int keycode, t_mlx_win *render)
 }
 
 //gcc  -lmlx -framework OpenGL -framework AppKit -I ./includes/ parser/*.c render/*.c minirt.c -o minrt
+//gcc  -lmlx -I ./includes/ parser/*.c render/*.c minirt.c -o minrt
