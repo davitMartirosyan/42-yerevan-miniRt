@@ -12,6 +12,7 @@ SRC = 	$(wildcard parser/*.c) \
 		$(wildcard tracer/*.c) \
 		$(wildcard vector/*.c) \
 		$(wildcard libft/*.c) \
+		$(wildcard gnl/*.c) \
 		$(wildcard *.c)
 
 OBJ =   $(patsubst %.c, %.o, $(SRC))
@@ -27,12 +28,15 @@ $(OBJDIR)/%.o : %.c
 	@ $(MKDIR) $(OBJDIR)/render
 	@ $(MKDIR) $(OBJDIR)/utils
 	@ $(MKDIR) $(OBJDIR)/libft
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ 
+	@ $(MKDIR) $(OBJDIR)/gnl
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ 
 
 all : $(NAME)
 
 $(NAME) : $(INDIR)
-	$(CC) $(CFLAGS) $(INDIR) $(FRAMEWORK) $(INCLUDES) -o $(NAME)
+	@echo "Compiling..."
+	@$(CC) $(CFLAGS) $(INDIR) $(FRAMEWORK) $(INCLUDES) -o $(NAME)
+	@echo "Compiled..."
 
 re : fclean all
 

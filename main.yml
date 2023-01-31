@@ -1,0 +1,7 @@
+void		*mlx;
+	void		*mlx_win;
+
+	(void)mlx_win;
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 500, 500 , "Unreal Engine 6");
+	mlx_loop(mlx);

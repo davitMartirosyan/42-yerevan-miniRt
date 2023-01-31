@@ -6,14 +6,18 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:57:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/01/30 23:19:17 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/01/31 21:40:04 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
+# define BUFFER_SIZE 42
 # include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <sys/types.h>
 # include <string.h>
 # include "../mlx_linux/mlx.h"
 # include <math.h>
@@ -29,13 +33,13 @@ float		two_points(t_vec *v1, t_vec *v2);
 
 /*utils*/
 void		failure(int errcode);
+char		*get_next_line(int fd);
+char		*ft_strchr_gnl(const char *buffer, int ch);
+char		*join(char *s1, char *s2);
+char		*after(char *buffer);
+char		*before(char *buffer);
 
 
-/*Components*/
-t_cam		*newcam(t_vec *origin, t_vec *direction, float fov);
-t_terrain	*newscene(t_cam *cam, t_sphere *sphere);
-t_sphere	*newsphere(t_vec *vec, float radius);
-
-/*Tracer*/
-void	raytracer(t_render *rend, t_terrain *scene);
+/*Parser*/
+int			parser(char *f);
 #endif
