@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 05:09:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/01/31 22:20:47 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:25:26 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int parser(char *f)
     char    *basis;
     char    **split;
     
-    (void)*line;
+    (void)line;
+	(void)split;
+	(void)basis;
     basis = "";
     fd = open(f, O_RDONLY, 0644);
     if (fd == -1)

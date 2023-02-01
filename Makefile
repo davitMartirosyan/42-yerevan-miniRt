@@ -2,7 +2,8 @@ NAME = minirt
 CC = gcc
 OBJDIR = objs
 INCLUDES = -I ./includes/
-FRAMEWORK = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm  #-framework OpenGL -framework AppKit
+FRAMEWORK =  -lmlx -framework OpenGL -framework AppKit
+#FRAMEWORK =  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm
 CFLAGS = -Wall -Wextra -Werror
 SRC = 	$(wildcard parser/*.c) \
 		$(wildcard unreal/*.c) \
@@ -29,7 +30,7 @@ $(OBJDIR)/%.o : %.c
 	@ $(MKDIR) $(OBJDIR)/utils
 	@ $(MKDIR) $(OBJDIR)/libft
 	@ $(MKDIR) $(OBJDIR)/gnl
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ 
+	@$(CC) $(CFLAGS) $(INCLUDES) -Imlx -c $< -o $@ 
 
 all : $(NAME)
 
