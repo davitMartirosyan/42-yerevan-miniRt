@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:57:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/01 16:32:23 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:37:34 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <string.h>
-# include <mlx.h>
+# include "../mlx_mms/mlx.h"
 # include <math.h>
 # include "../libft/libft.h"
 # include "structs.h"

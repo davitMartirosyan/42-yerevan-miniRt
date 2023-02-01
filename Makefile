@@ -13,7 +13,7 @@ SRC = 	$(wildcard parser/*.c) \
 		$(wildcard tracer/*.c) \
 		$(wildcard vector/*.c) \
 		$(wildcard libft/*.c) \
-		$(wildcard gnl/*.c) \
+		$(wildcard get_line/*.c) \
 		$(wildcard *.c)
 
 OBJ =   $(patsubst %.c, %.o, $(SRC))
@@ -29,7 +29,7 @@ $(OBJDIR)/%.o : %.c
 	@ $(MKDIR) $(OBJDIR)/render
 	@ $(MKDIR) $(OBJDIR)/utils
 	@ $(MKDIR) $(OBJDIR)/libft
-	@ $(MKDIR) $(OBJDIR)/gnl
+	@ $(MKDIR) $(OBJDIR)/get_line
 	@$(CC) $(CFLAGS) $(INCLUDES) -Imlx -c $< -o $@ 
 
 all : $(NAME)
