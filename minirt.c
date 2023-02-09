@@ -14,21 +14,19 @@
 
 int main(int ac, char *av[], char *envp[])
 {
-	void *mlx;
-	void *mlx_win;
+	t_vec	*vec;
+	float	x;
+	float	y;
+	float	z;
 
-	(void)ac;
-	(void)av;
-	(void)envp;
-	(void)mlx_win;
-	(void)mlx;
-	if(ac < 2)
-		failure(-3);
-	if (parser(av[1]) == -4)
-		failure(-4);
-	
-	// mlx = mlx_init();
-	// mlx_win = mlx_new_window(mlx, 600, 600, "Unreal Engine 5");
-	// mlx_loop(mlx);
+	x = 5;
+	y = 8;
+	z = 6;
+
+	vec = vec_(x, y, z);
+	veclen(vec);
+	vecnorm(vec);
+	printf("%f : %f : %f\n", vec->x, vec->y, vec->z);
+
 	return (0);
 }

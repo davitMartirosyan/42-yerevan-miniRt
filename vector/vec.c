@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_vec	*vec(float x, float y, float z)
+t_vec	*vec_(float x, float y, float z)
 {
 	t_vec	*vector;
 
@@ -25,37 +25,27 @@ t_vec	*vec(float x, float y, float z)
 	return (vector);
 }
 
-t_vec	*vecsubtract(t_vec *v1, t_vec *v2)
+void	veclen(t_vec *vec)
 {
-	t_vec	*vecsubtractor;
-
-	vecsubtractor = vec(v1->x - v2->x, v1->y - v2->y, v1->z - v2->z);
-	return (vecsubtractor);
+	vec->l = sqrt((vec->x * vec->x) + (vec->y * vec->y) + (vec->z * vec->z));
 }
 
-
-float	veclen(t_vec *vec)
+void	vecnorm(t_vec *vec)
 {
-	float	vlen;
+	float vec_tmp;
 
-	vlen = sqrt((vec->x * vec->x) + (vec->y * vec->y) + (vec->z * vec->z));
-	return (vlen);
+	vec_tmp = 1 / vec->l;
+	vec->x *= vec_tmp;
+	vec->y *= vec_tmp;
+	vec->z *= vec_tmp;
+	vec->x = ceil(vec->x);
+	vec->y = ceil(vec->y);
+	vec->z = ceil(vec->z);
 }
 
-void	vec_norm(t_vec *vec)
+float	dot(t_vec *v1, t_vec *v2)
 {
-	float	vlen;
-
-	vlen = veclen(vec);
-	vec->x /= vlen;
-	vec->y /= vlen;
-	vec->z /= vlen;
-}
-
-float	two_points(t_vec *v1, t_vec *v2)
-{
-	float	points;
-
-	points = ((v1->x * v2->x) + (v1->y * v2->y) + (v1->z * v2->z));
-	return (points);
+	float	dot_p;
+	dot_p = (v1->x * v2->x) + (v1->y * v2->y) + (v1->z * v2->z);
+	return (dot_p);
 }

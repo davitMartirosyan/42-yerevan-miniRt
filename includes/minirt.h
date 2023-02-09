@@ -19,17 +19,17 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <string.h>
-# include "../mlx_mms/mlx.h"
+# include "../mlx_linux/mlx.h"
 # include <math.h>
 # include "../libft/libft.h"
 # include "structs.h"
 
 /*Vector*/
-t_vec		*vec(float x, float y, float z);
-t_vec		*vecsubtract(t_vec *v1, t_vec *v2);
-float		veclen(t_vec *vec);
-void		vec_norm(t_vec *vec);
-float		two_points(t_vec *v1, t_vec *v2);
+t_vec	*vec_(float x, float y, float z);
+void	veclen(t_vec *vec);
+void	vecnorm(t_vec *vec);
+float	dot(t_vec *v1, t_vec *v2);
+
 
 /*utils*/
 char	*get_next_line(int fd);

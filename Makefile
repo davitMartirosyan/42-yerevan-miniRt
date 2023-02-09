@@ -2,9 +2,9 @@ NAME = minirt
 CC = gcc
 OBJDIR = objs
 INCLUDES = -I ./includes/
-FRAMEWORK =  -lmlx -framework OpenGL -framework AppKit
-#FRAMEWORK =  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm
-CFLAGS = -Wall -Wextra -Werror
+#FRAMEWORK =  -lmlx -framework OpenGL -framework AppKit
+FRAMEWORK =  -Lmlx_linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+CFLAGS = -lm #-Wall -Wextra -Werror
 SRC = 	$(wildcard parser/*.c) \
 		$(wildcard unreal/*.c) \
 		$(wildcard render/*.c) \
@@ -30,14 +30,16 @@ $(OBJDIR)/%.o : %.c
 	@ $(MKDIR) $(OBJDIR)/utils
 	@ $(MKDIR) $(OBJDIR)/libft
 	@ $(MKDIR) $(OBJDIR)/get_line
-	@$(CC) $(CFLAGS) $(INCLUDES) -Imlx -c $< -o $@ 
+	@$(CC) $(CFLAGS) $(INCLUDES) -Imlx_linux -c $< -o $@ 
 
 all : $(NAME)
 
 $(NAME) : $(INDIR)
 	@echo "Compiling..."
-	@$(CC) $(CFLAGS) $(INDIR) $(FRAMEWORK) $(INCLUDES) -o $(NAME)
+	@$(CC) $(CFLAGS) $(INDIR) $(INCLUDES) $(FRAMEWORK) -o $(NAME)
 	@echo "Compiled..."
+
+
 
 re : fclean all
 
