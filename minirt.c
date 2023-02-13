@@ -6,27 +6,47 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:51:51 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/01 16:35:40 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:07:38 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int main(int ac, char *av[], char *envp[])
+int main()
 {
-	t_vec	*vec;
-	float	x;
-	float	y;
-	float	z;
+	t_sp	*sp;
+	t_vec3	v;
+	t_col	rgb;
+	float	r;
 
-	x = 5;
-	y = 8;
-	z = 6;
+	r = 12.6;
+	v.x = 0.0;
+	v.y = 0.0;
+	v.z = 20.6;
+	
+	rgb.r = 255;
+	rgb.g = 0;
+	rgb.b = 0;
 
-	vec = vec_(x, y, z);
-	veclen(vec);
-	vecnorm(vec);
-	printf("%f : %f : %f\n", vec->x, vec->y, vec->z);
+	sp = new_sp(&v, &rgb, r);
 
+	void	*mlx;
+	void	*mlx_win;
+
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 500, 500, "unreal engine");
+	int i, j;
+	i = 0;
+	while (i <= 500)
+	{
+		j = 0;
+		while (j++ < 500)
+			mlx_pixel_put(mlx, mlx_win, j, i, sp->color);
+		i++;
+	}
+	mlx_loop(mlx);
 	return (0);
 }
+
+
+//  0.0, 0.0, 20.6    12.6      10,0,255
