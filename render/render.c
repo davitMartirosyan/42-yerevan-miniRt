@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 05:09:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/15 20:20:12 by dmartiro         ###   ########.fr       */
+/*   Created: 2023/02/15 20:18:15 by dmartiro          #+#    #+#             */
+/*   Updated: 2023/02/15 20:19:22 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int parser(t_scene *scene, char *f)
+void	render(t_scene *scene)
 {
-    
-    return (-1);
+	(void)scene;
 }

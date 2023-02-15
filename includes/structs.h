@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 07:09:22 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/13 20:05:28 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:14:59 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_sp
 	t_col			*rgb;
 	int				color;
 	float			radius;
+	struct s_sp		*next;
 }	t_sp; // sphere
 
 typedef struct s_cy
@@ -40,6 +41,7 @@ typedef struct s_cy
 	float	color;
 	float	diameter;
 	float	height;
+	struct s_cy	*next;
 }	t_cy; // cylinder
 
 typedef struct s_pl
@@ -48,11 +50,13 @@ typedef struct s_pl
 	t_vec3	*normal;
 	t_col	*rgb;
 	float	color;
+	struct s_pl	*next;
 }	t_pl; // plane
 
 typedef struct s_cam
 {
 	t_vec3	*cord;
+	t_vec3	*normal;
 	float	hfov;
 	float	vfov;
 }	t_cam; //camera
@@ -70,3 +74,14 @@ typedef struct s_ambient
 	t_col	rgb;
 	float	color;
 }	t_ambient; // ambient light
+
+typedef struct s_scene
+{
+	t_cam		*camera;
+	t_light		*light;
+	t_ambient	*ambient_light;
+	t_sp		*spheres;
+	t_cy		*cylinders;
+	t_pl		*plane;
+};
+

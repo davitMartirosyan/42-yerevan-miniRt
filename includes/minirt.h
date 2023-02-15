@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:57:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/13 18:47:05 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:19:41 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,13 @@ char	*before(char *buffer);
 void	failure(int errcode);
 
 /*Parser*/
-int			parser(char *f);
+int parser(t_scene *scene, char *f);
 
 //prototypes
 t_sp	*new_sp(t_vec3 *v, t_col *c, float r);
+
+
+//Render
+void	render(t_scene *scene);
+
 #endif
