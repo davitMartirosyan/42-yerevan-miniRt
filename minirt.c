@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:51:51 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/16 07:29:32 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:27:33 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,13 @@ int main(int ac, char **av)
 	
 	scene = NULL;
 	table = NULL;
-	
 	if (ac < 2 || ac > 2)
 		failure(-3);
-	// table = init_table();
 	init(&table, &scene);
-	parse_compose = parser(table, scene, av[1]);
-	printf("%f\n", scene->ambient_light->brightness);
-
-	if(parse_compose > 0)
-		render(scene);
+	if(parser(table, scene, av[1]) > 0)
+		render(table, scene);
 	else
-		failure(parse_compose);
-	
+		failure(table->def);
 	return (0);
 }
 

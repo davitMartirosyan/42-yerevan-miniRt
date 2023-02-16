@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 07:09:22 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/16 07:12:00 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:20:04 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_cam
 {
 	t_vec3	*cord;
 	t_vec3	*normal;
-	float	hfov;
+	int		hfov;
 	float	vfov;
 }	t_cam; //camera
 
@@ -94,4 +94,5 @@ typedef struct s_table
 {
 	int	ambient_count;
 	int	camera_count;
+	int	def;
 }	t_table;

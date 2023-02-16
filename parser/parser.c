@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 05:09:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/16 07:16:32 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:43:38 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ int parser(t_table *table, t_scene *scene, char *f)
 		line = get_next_line(fd);
 	}
 	if (table->ambient_count > 1 || table->camera_count > 1)
-		failure(-5);
-    return (0);
+	{
+		table->def = -5;
+		return (-5);
+	}
+    return (1);
 }
 
 void	collect_objects(t_table *table, t_scene *scene, char *line)
@@ -40,7 +43,48 @@ void	collect_objects(t_table *table, t_scene *scene, char *line)
 	split = ft_split(line, ' ');
 	if (ft_strcmp(split[0], "A") == 0)
 		ambient(table, scene->ambient_light, split);
+	if (ft_strcmp(split[0], "C") == 0 || ft_strcmp(split[0], "c") == 0)
+		camera(table, scene->camera, split);
 }
+
+void	camera(t_table *table, t_cam *camera, char **split)
+{
+	int	i;
+	char	**div;
+	int		xyz;
+	int		vecnorm;
+	
+	i = 0;
+	xyz = 0;
+	vecnorm = 0;
+	table->camera_count++;
+	while (split[++i])
+	{
+		if (ft_strchr(split[i], ',') && xyz == 0)
+		{
+			div = ft_split(split[i], ',');
+			camera->cord = (t_vec3 *)ft_calloc(3, sizeof(t_vec3));
+			camera->cord->x = ft_atof(div[0]);
+			camera->cord->y = ft_atof(div[1]);
+			camera->cord->z = ft_atof(div[2]);
+			free_char_pp(&div);
+			xyz++;
+		}
+		else if (ft_strchr(split[i], ',') && vecnorm == 0)
+		{
+			div = ft_split(split[i], ',');
+			camera->normal = (t_vec3 *)ft_calloc(3, sizeof(t_vec3));
+			camera->normal->x = ft_atof(div[0]);
+			camera->normal->y = ft_atof(div[1]);
+			camera->normal->z = ft_atof(div[2]);
+			free_char_pp(&div);
+			vecnorm++;
+		}
+		else
+			camera->hfov = ft_atoi(split[i]);
+	}
+}
+
 
 void	ambient(t_table *table, t_ambient *a_light, char **split)
 {
@@ -49,12 +93,14 @@ void	ambient(t_table *table, t_ambient *a_light, char **split)
 
 	div = NULL;
 	i = 0;
+	table->ambient_count++;
 	while (split[++i])
 	{
 		if (ft_strchr(split[i], ','))
 		{
+			
 			div = ft_split(split[i], ',');
-			a_light->rgb = (t_col *)malloc(sizeof(t_col));
+			a_light->rgb = (t_col *)ft_calloc(3, sizeof(t_col));
 			a_light->rgb->r = ft_atoi(div[0]);
 			a_light->rgb->g = ft_atoi(div[1]);
 			a_light->rgb->b = ft_atoi(div[2]);

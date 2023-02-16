@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:57:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/16 07:14:10 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:45:44 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # include "../libft/libft.h"
 
 #define PREF "A C L pl sp cy"
-
+#define EPSILION 0.000000001
 /*
 	A  = AMBIENT LIGHT
 	C  = CAMERA
@@ -56,13 +56,14 @@ void	failure(int errcode);
 int 	parser(t_table *table, t_scene *scene, char *f);
 void	collect_objects(t_table *table, t_scene *scene, char *line);
 void	ambient(t_table *table, t_ambient *a_light, char **split);
+void	camera(t_table *table, t_cam *camera, char **split);
 
 //prototypes
 t_sp	*new_sp(t_vec3 *v, t_col *c, float r);
 
 
 //Render
-void	render(t_scene *scene);
+void	render(t_table *table, t_scene *scene);
 
 
 //Resource Freeing
