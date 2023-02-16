@@ -3,6 +3,7 @@
 		"minirt.h": "c",
 		"structs.h": "c",
 		"get_next_line.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"unistd.h": "c"
 	}
 }

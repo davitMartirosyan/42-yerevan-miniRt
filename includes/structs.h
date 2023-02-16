@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 07:09:22 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/15 20:14:59 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/16 07:12:00 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_col
 
 typedef struct s_sp
 {
+	struct s_sp		*head;
 	t_vec3			*cord;
 	t_col			*rgb;
 	int				color;
@@ -35,6 +36,7 @@ typedef struct s_sp
 
 typedef struct s_cy
 {
+	struct s_sp		*head;
 	t_vec3	*cord;
 	t_vec3	*normal;
 	t_col	*rgb;
@@ -46,6 +48,7 @@ typedef struct s_cy
 
 typedef struct s_pl
 {
+	struct s_sp		*head;
 	t_vec3	*cord;
 	t_vec3	*normal;
 	t_col	*rgb;
@@ -63,15 +66,17 @@ typedef struct s_cam
 
 typedef struct s_light
 {
+	struct s_sp		*head;
 	t_vec3	*cord;
 	t_col	*rgb;
 	float	brightness;
+	struct s_sp		*next;
 }	t_light; // light
 
 typedef struct s_ambient
 {
 	float	brightness;
-	t_col	rgb;
+	t_col	*rgb;
 	float	color;
 }	t_ambient; // ambient light
 
@@ -83,5 +88,10 @@ typedef struct s_scene
 	t_sp		*spheres;
 	t_cy		*cylinders;
 	t_pl		*plane;
-};
+} t_scene;
 
+typedef struct s_table
+{
+	int	ambient_count;
+	int	camera_count;
+}	t_table;
