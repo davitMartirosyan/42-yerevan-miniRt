@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 05:09:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/17 00:43:38 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/23 02:04:39 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int parser(t_table *table, t_scene *scene, char *f)
 	while (line != NULL)
 	{
 		collect_objects(table, scene, line);
+		free(line);
 		line = get_next_line(fd);
 	}
 	if (table->ambient_count > 1 || table->camera_count > 1)
@@ -29,6 +30,8 @@ int parser(t_table *table, t_scene *scene, char *f)
 		table->def = -5;
 		return (-5);
 	}
+	close(fd);
+	collect_shapes(table, scene, f);
     return (1);
 }
 
@@ -43,8 +46,9 @@ void	collect_objects(t_table *table, t_scene *scene, char *line)
 	split = ft_split(line, ' ');
 	if (ft_strcmp(split[0], "A") == 0)
 		ambient(table, scene->ambient_light, split);
-	if (ft_strcmp(split[0], "C") == 0 || ft_strcmp(split[0], "c") == 0)
+	else if (ft_strcmp(split[0], "C") == 0 || ft_strcmp(split[0], "c") == 0)
 		camera(table, scene->camera, split);
+	free_char_pp(&split);
 }
 
 void	camera(t_table *table, t_cam *camera, char **split)
@@ -85,7 +89,6 @@ void	camera(t_table *table, t_cam *camera, char **split)
 	}
 }
 
-
 void	ambient(t_table *table, t_ambient *a_light, char **split)
 {
 	int	i;
@@ -107,6 +110,6 @@ void	ambient(t_table *table, t_ambient *a_light, char **split)
 			free_char_pp(&div);
 		}
 		else
-			a_light->brightness = ft_atoi(split[i]);
+			a_light->brightness = ft_atof(split[i]);
 	}
 }

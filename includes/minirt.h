@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:57:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/17 00:45:44 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/23 02:15:13 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ int 	parser(t_table *table, t_scene *scene, char *f);
 void	collect_objects(t_table *table, t_scene *scene, char *line);
 void	ambient(t_table *table, t_ambient *a_light, char **split);
 void	camera(t_table *table, t_cam *camera, char **split);
+void	collect_shapes(t_table *table, t_scene *scene, char *filename);
+void	shape_counter(int *lpsc, char *filename);
+
+/*Shapes*/
+void	lights(t_light **li, char *filename);
 
 //prototypes
 t_sp	*new_sp(t_vec3 *v, t_col *c, float r);

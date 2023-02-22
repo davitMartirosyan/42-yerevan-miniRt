@@ -6,9 +6,20 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 07:09:22 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/17 00:20:04 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/23 02:27:59 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+typedef struct s_table		t_table;
+typedef struct s_vec3		t_vec3;
+typedef struct s_col		t_col;
+typedef struct s_sp			t_sp;
+typedef struct s_cy			t_cy;
+typedef struct s_pl			t_pl;
+typedef struct s_light		t_light;
+typedef struct s_ambient	t_ambient;
+typedef struct s_cam		t_cam;
+typedef struct s_scene		t_scene;
 
 typedef struct s_vec3
 {
@@ -26,7 +37,6 @@ typedef struct s_col
 
 typedef struct s_sp
 {
-	struct s_sp		*head;
 	t_vec3			*cord;
 	t_col			*rgb;
 	int				color;
@@ -36,7 +46,6 @@ typedef struct s_sp
 
 typedef struct s_cy
 {
-	struct s_sp		*head;
 	t_vec3	*cord;
 	t_vec3	*normal;
 	t_col	*rgb;
@@ -48,7 +57,6 @@ typedef struct s_cy
 
 typedef struct s_pl
 {
-	struct s_sp		*head;
 	t_vec3	*cord;
 	t_vec3	*normal;
 	t_col	*rgb;
@@ -56,21 +64,12 @@ typedef struct s_pl
 	struct s_pl	*next;
 }	t_pl; // plane
 
-typedef struct s_cam
-{
-	t_vec3	*cord;
-	t_vec3	*normal;
-	int		hfov;
-	float	vfov;
-}	t_cam; //camera
-
 typedef struct s_light
 {
-	struct s_sp		*head;
 	t_vec3	*cord;
 	t_col	*rgb;
 	float	brightness;
-	struct s_sp		*next;
+	struct s_light		*next;
 }	t_light; // light
 
 typedef struct s_ambient
@@ -80,15 +79,32 @@ typedef struct s_ambient
 	float	color;
 }	t_ambient; // ambient light
 
+typedef struct s_cam
+{
+	t_vec3	*cord;
+	t_vec3	*normal;
+	int		hfov;
+	float	vfov;
+}	t_cam; //camera
+
 typedef struct s_scene
 {
 	t_cam		*camera;
-	t_light		*light;
 	t_ambient	*ambient_light;
+	t_light		*light;
 	t_sp		*spheres;
 	t_cy		*cylinders;
 	t_pl		*plane;
 } t_scene;
+
+typedef struct s_tr
+{
+	t_vec3	*a;
+	t_vec3	*b;
+	t_vec3	*c;
+	t_col	*rgb;
+	float	color;
+}	t_tr;
 
 typedef struct s_table
 {
