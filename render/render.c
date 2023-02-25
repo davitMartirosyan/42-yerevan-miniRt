@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 20:18:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/23 02:31:53 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:14:19 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,4 @@
 
 void	render(t_table *table, t_scene *scene)
 {
-	printf("%d\n", scene->light->next->rgb->r);
 }
