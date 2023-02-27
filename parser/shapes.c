@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:04:18 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/25 14:41:53 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/28 00:10:05 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	collect_shapes(t_table *table, t_scene *scene, char *filename)
     light(lscp[0], scene, filename);
     plane(lscp[1], scene, filename);
 	sphere(lscp[2], scene, filename);
-
+	
 }
 
 void	shape_counter(int *lpsc, char *filename)

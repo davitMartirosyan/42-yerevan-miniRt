@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 07:09:22 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/25 13:33:11 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/02/28 00:27:41 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ typedef struct s_ambient	t_ambient;
 typedef struct s_cam		t_cam;
 typedef struct s_scene		t_scene;
 typedef struct s_spin		t_spin;
+typedef struct s_ray		t_ray;
+
+typedef struct s_ray
+{
+	t_vec3	*direction;
+	float	t;
+}	t_ray;
 
 typedef struct s_vec3
 {
@@ -82,6 +89,7 @@ typedef struct s_cam
 {
 	t_vec3	*cord;
 	t_vec3	*normal;
+	float	zoom;
 	int		hfov;
 	float	vfov;
 }	t_cam; //camera
@@ -110,6 +118,8 @@ typedef struct s_table
 	int	ambient_count;
 	int	camera_count;
 	int	def;
+	void	*mlx;
+	void	*mlx_win;
 }	t_table;
 
 typedef struct s_spin
