@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   vec3.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 20:18:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/25 13:14:19 by dmartiro         ###   ########.fr       */
+/*   Created: 2023/03/02 21:04:19 by dmartiro          #+#    #+#             */
+/*   Updated: 2023/03/02 21:33:15 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
-
-void	render(t_table *table, t_scene *scene)
-{
-}
+t_vec3	*vecsum(t_vec3 *v1, t_vec3 *v2);
+t_vec3	*vecmul(t_vec3 *v1, float p);
+t_vec3	*vecsub(t_vec3 *v1, t_vec3 *v2);
+t_vec3	*vecnorm(t_vec3 *v1);
+float	veclen(t_vec3 *v1);

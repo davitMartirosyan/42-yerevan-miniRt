@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:57:15 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/25 14:40:18 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/03/02 21:33:01 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <math.h>
 # include "../mlx_mms/mlx.h"
 # include "structs.h"
+# include "vec3.h"
 # include "prototype.h"
 # include "proto.h"
 # include "../libft/libft.h"
@@ -38,7 +39,6 @@
 */
 
 /*Initialization*/
-t_table	*init_table(void);
 void	init(t_table **table, t_scene **scene);
 
 

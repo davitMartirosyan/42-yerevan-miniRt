@@ -2,8 +2,8 @@ NAME = minirt
 CC = gcc
 OBJDIR = objs
 INCLUDES = -I ./includes/
-# FRAMEWORK =  -lmlx -framework OpenGL -framework AppKit
-FRAMEWORK =  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm
+FRAMEWORK =  -lmlx -framework OpenGL -framework AppKit
+# FRAMEWORK =  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm
 CFLAGS = -pthread #-Wall -Wextra -Werror
 SRC = 	$(wildcard parser/*.c) \
 		$(wildcard utils/*.c) \
