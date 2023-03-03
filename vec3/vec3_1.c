@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 21:04:58 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/03/02 21:32:20 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:17:57 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_vec3	*vecsub(t_vec3 *v1, t_vec3 *v2)
 {
 	t_vec3	*vec3sub;
 	
-	vec3sub = (t_vec3 *)ft_calloc(sizeof(t_vec3));
+	vec3sub = (t_vec3 *)ft_calloc(3, sizeof(t_vec3));
 	vec3sub->x = (v1->x - v2->x);
 	vec3sub->y = (v1->y - v2->y);
 	vec3sub->z = (v1->z - v2->z);

@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 04:51:51 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/23 02:01:24 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:34:31 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,15 @@ int main(int ac, char **av)
 	
 	scene = NULL;
 	table = NULL;
-	if (ac < 2 || ac > 2)
+	if (ac != 4)
 		failure(-3);
 	init(&table, &scene);
 	if(parser(table, scene, av[1]) > 0)
+	{
+		table->w = ft_atof(av[2]);
+		table->h = ft_atof(av[3]);
 		render(table, scene);
+	}
 	else
 		failure(table->def);
 	return (0);

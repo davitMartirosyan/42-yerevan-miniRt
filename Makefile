@@ -42,3 +42,6 @@ clean :
 
 fclean : clean
 	rm -rf $(NAME)
+
+test:
+	make && ./minirt maps/plane.rt 500 500

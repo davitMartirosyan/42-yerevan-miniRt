@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 07:09:22 by dmartiro          #+#    #+#             */
-/*   Updated: 2023/02/25 13:33:11 by dmartiro         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:38:47 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_ambient	t_ambient;
 typedef struct s_cam		t_cam;
 typedef struct s_scene		t_scene;
 typedef struct s_spin		t_spin;
+typedef	struct s_screen		t_screen;
 
 typedef struct s_vec3
 {
@@ -107,10 +108,26 @@ typedef struct s_tr
 
 typedef struct s_table
 {
-	int	ambient_count;
-	int	camera_count;
-	int	def;
+	int		ambient_count;
+	int		camera_count;
+	int		def;
+	float	w;
+	float	h;
 }	t_table;
+
+typedef	struct s_screen
+{
+	float	cx;
+	float	cy;
+	float	w;
+	float	h;
+	float	posx;
+	float	posy;
+	float	tx;
+	float	ty;
+	void	*mlx;
+	void	*mlx_win;
+}	t_screen;
 
 typedef struct s_spin
 {

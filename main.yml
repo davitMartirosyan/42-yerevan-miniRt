@@ -99,3 +99,23 @@ void		*mlx;
 //         line = get_next_line(fd);
 //     }
 // }
+
+
+
+
+if (spx > 0 && spy > 0)
+			{
+				if (s->posx == (spx + s->cx) && s->posy == (s->cy - spy))
+					mlx_pixel_put(s->mlx, s->mlx_win, s->posx, s->posy, 0xff0000);
+				else
+					mlx_pixel_put(s->mlx, s->mlx_win, s->posx, s->posy, 0x28c1a1);
+
+			}
+			else if (spx < 0 && spy > 0)
+			{
+				if (s->posx == (spx + s->cx) && s->posy == (s->cy - spy))
+					mlx_pixel_put(s->mlx, s->mlx_win, s->posx, s->posy, 0xff0000);
+				else
+				mlx_pixel_put(s->mlx, s->mlx_win, s->posx, s->posy, 0x28c1a1);
+			}
+			else
